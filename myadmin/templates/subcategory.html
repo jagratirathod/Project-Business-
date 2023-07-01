@@ -1,0 +1,39 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+<style>
+    label {
+        color: white;
+        font-size: 15px;
+    }
+</style>
+
+<font color:"blue">{{output}}</font>
+<form method="POST" action="/myadmin/subcategory/" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <center>
+        <h2>Sub-Category </h2> <br><br>
+        <fieldset style="background-color:skyblue; height:300px"> <br><br>
+
+
+            <label>Category Name :</label>
+            <select name="catnm">
+                <option>Select Category:</option>
+                {% for row in clist %}
+                <option>{{row.catnm}}</option>
+                {% endfor %}
+            </select> <br><br><br>
+
+            <label>Sub Category Name:</label>
+            <input type="text" name="subcatnm" placeholder="enter subcategory name"> <br><br><br>
+
+            <label>Sub Category Icon</label>
+            <input type="file" name="caticon"> <br><br><br>
+
+            <input type="submit" value="Add subcategory">
+
+        </fieldset>
+    </center>
+</form>
+{% endblock %}

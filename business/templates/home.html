@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% block half %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .img {
+        height: 180px;
+        width: 200px;
+    }
+</style>
+<center><h2>Category</h2></center><br>
+<div style="height:500px; background-color:skyblue;"><br><br>
+    <center>
+       
+        {% for row in clist %}
+        <a href="/viewsubcategory/?catnm={{row.catnm}}">
+            <div class="img">
+                <img src="{{media_url}}{{row.caticonname}}" height="150" width="150">{{row.subcatnm}} <br>
+            </div>
+        </a>
+        {% endfor %}
+    </center>
+</div>
+{% endblock %}
+
+
+{% block sidemenu %}
+<div style="height:550px; width:110%;">
+    <h2>Category</h2><br>
+    {% for row in clist %}
+    <a href="/viewsubcategory/?catnm={{row.catnm}}"><br>
+        <p>{{row.catnm}}</p>
+        {% endfor %}
+</div>
+{% endblock %}

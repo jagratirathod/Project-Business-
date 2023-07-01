@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block half %} 
+{% endblock %}
+
+{% block content %}
+<form style="background-color: skyblue;height: 400px;;">
+<br><br>
+<center>
+   <h2 > Welcome To User-panel</h2>
+</center>
+</form>
+{% endblock %}
+
+
+{% block menu %} 
+<div style="color: white; font-size:15px; margin-left: 500px"> Welcome User : {{sunm}}</div> 
+
+<ul>
+    <li><a href="/user/" class="currrent">User Home</a></li>
+    <li><a href="/user/addproduct/">Add Product</a></li>
+    <li><a href="/user/viewproductuser/">View Product</a></li>
+    <li><a href="/user/bidproduct/">Bid Product</a></li> 
+    <li><a href="/user/cpuser/">change password</a></li> 
+    <li><a href="/login/">Logout</a></li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'userhome.html' %}
+
+{% block sidemenu %}
+{% endblock %}
+
+{% block content %}
+<center>
+    <h2> View Bidding Product !</h2> <br><br>
+    <div style="height:1000px; width:140%;  color: black; background-color: skyblue; font-size: 15px; ">
+
+        <table cellpadding=15px cellspacing=20px>
+            <tr>
+                <th>Product Id</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Description</th>
+                <th>Base Price</th>
+                <th>Product Icon</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td colspan="15">
+                    <hr>
+                </td>
+            </tr>
+
+            {% for row in plist %}
+            <tr style="color:white;">
+                <td>{{row.pid}}</td>
+                <td>{{row.title}}</td>
+                <td>{{row.category}}</td>
+                <td>{{row.subcategory}}</td>
+                <td>{{row.description}}</td>
+                <td>{{row.bprice}}</td>
+                <td><img src="{{media_url}}{{row.file1}}" height="50" width="70"></td>
+                <td><a href="/user/bidproductview/?pid={{row.pid}}&bprice={{row.bprice}}">Bid Product</a></td>
+            </tr>
+
+            <tr>
+                <td colspan="9">
+                    <hr>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </table>
+</center>
+</div>
+
+{% endblock %}

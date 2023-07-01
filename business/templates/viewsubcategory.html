@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+
+{% block half %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .img {
+        height: 150px;
+        width: 200px;
+    }
+</style>
+
+
+<div style="height:1500px; background-color: skyblue;">
+    <center>
+        <h2>Sub Category >> {{catnm}}</h2>
+    </center><br><br>
+    {% for row in sclist %}
+    <a href="/viewproductfilter/?cnm={{catnm}}&scnm={{row.Subcatnm}}">
+    <div class="img">
+        <img src="{{media_url}}{{row.subcaticonname}}" height="150" width="150"{{row.subcatnm}}>
+    </div>
+    </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+{% block sidemenu %}
+<div>
+    <center>
+        <h2>Category</h2> <br>
+        {% for row in clist %}
+        <a href="/viewsubcategory/?catnm={{row.catnm}}">
+            <p>{{row.catnm}}</p>
+        </a>
+        {% endfor %}
+    </center>
+</div>
+{% endblock %}

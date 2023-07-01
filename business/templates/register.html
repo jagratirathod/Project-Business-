@@ -1,0 +1,49 @@
+{% extends 'index.html' %}
+
+{% block half %}
+{% endblock %}
+
+{% block content %}
+<font color="orange">{{output}}</font>
+<form method="POST" action="/register/">
+    {% csrf_token %}
+
+    <center>
+        <h2>Register Here!</h2><br>
+
+        <fieldset style="height:400px; background-color:rgb(135, 209, 243);color:white;font-size:19px; width:100%;"><br><br>
+
+            <label>Username :</label>
+            <input type="text" placeholder="enter username" name="username" /> <br><br>
+
+            <label>Password :</label>
+            <input type="text" placeholder="enter password" name="password" /> <br><br>
+
+
+            <label> Mobile:</label>
+            <input type="text" placeholder="enter mobile number" name="mobile" /> <br><br>
+
+            <label>Select Gender :</label>
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female <br><br>
+
+            <label>Enter Address :</label>
+            <textarea colspan="10" placeholder="enter address" name="address"></textarea>
+
+            <br><br>
+
+            <label>Select City : </label>
+            <select name="city">
+                <option>select city</option>
+                <option>Bhopal</option>
+                <option>Indore</option>
+                <option>Hyderabad</option>
+                <option>Pune</option>
+            </select> <br><br><br>
+
+            <input type="submit" value="REGISTER" />
+
+    </center>
+    </fieldset>
+</form>
+{% endblock %}

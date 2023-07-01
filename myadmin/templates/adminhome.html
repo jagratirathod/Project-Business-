@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block half %}
+{% endblock %}
+
+
+{% block content %}
+<form style="background-color:skyblue; height:550px;">
+
+    <center><br><br>
+        <h2>Welcome To Admin-panel</h2>
+    </center>
+</form>
+{% endblock %}
+
+
+{% block menu %}
+<div style="color:white; float:right; font-size:15px;">Welcome Admin : {{sunm}}</div>  
+
+<ul>
+    <li><a href="/myadmin/" class="current">Admin Home</a></li>
+    <li><a href="/myadmin/cpmyadmin/">Change Password</a></li>
+    <li><a href="/myadmin/manageusers/">Manage Users</a></li>
+    <li><a href="/myadmin/addcategory/">Add Category</a></li>
+    <li><a href="/myadmin/subcategory/">Sub Category</a></li>
+    <li><a href="/login/">Logout</a></li>
+</ul>
+
+
+{% endblock %}

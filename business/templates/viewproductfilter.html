@@ -1,0 +1,74 @@
+{% extends 'index.html' %}
+
+{% block sidemenu %}
+{% endblock %}
+
+{% block half %}
+<style>
+    .right {
+        height: 550px;
+        width: 20%;
+        float: right;
+    }
+</style>
+
+<div class="right">
+    <center>
+        <h2 style="color:blue">Subcategory</h2>
+        {% for row in sclist %}
+        <a href="/viewproductfilter/?cnm={{cnm}} & scnm={{row.subcatnm}}">
+            <h4>{{row.Subcatnm}}</h4>
+        </a>
+        {% endfor %}
+    </center>
+</div>
+{% endblock %}
+
+
+{% block content %}
+<style>
+    .left {
+
+        float: left;
+        height: 1000px;
+        width: 80%;
+    }
+</style>
+
+<div class="left">
+    <form method="GET" action="/viewproductfilter/?cnm={{catnm}}&scnm={{row.Subcatnm}}">
+        <center>
+            <h2 style="color:rgb(230, 27, 27)">Filter by Price</h2>
+
+            <input type="hidden" name="cnm" value="{{cnm}}">
+            <input type="hidden" name="scnm" value="{{scnm}}">
+            <input type="text" name="startprice" placeholder="Enter starting price">
+            <input type="text" name="endprice" placeholder="Enter ending price">
+            <input type="submit" value="Filter">
+        </center>
+    </form>
+
+    <br><br><br>
+
+    <h2>View Product >> {{cnm}} >> {{scnm}}</h2>
+
+    {% for row in plist %}
+    <table border="2" height="150" width="60%">
+        <tr>
+            <td width="30%" rowspan="3">
+                <img src="{{media_url}}{{row.file1}}" height="200" width="180" />
+            </td>
+            <td><b>Title : {{row.title}}</b></td>
+        </tr>
+        <tr>
+            <td><b>Description : {{row.description}}</b></td>
+        </tr>
+        <tr>
+            <td><b>Base Price : {{row.bprice}}</b></td>
+        </tr>
+    </table>
+    <br><br>
+    {% endfor %}
+
+</div>
+{% endblock %}

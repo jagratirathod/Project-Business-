@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+{% block half %}
+{% endblock %}
+
+
+{% block content %}
+<font color="orange">{{output}}</font>
+<form method="POST" action="/login/">
+{% csrf_token %} 
+
+<center>
+    <h2>Login Here !</h2>     <br>
+
+    <fieldset  style="height:300px; background-color:lightskyblue; font-size:16px; color:white;">
+    <br><br><br>
+        
+    <label>Username  :</label>
+    <input type="text" placeholder="enter username"  name="username"/>   <br><br>
+
+    <label>Password :</label>
+    <input type="text" placeholder="enter password" name="password" /> <br><br>
+  
+    <input type="checkbox" name="chk" value="remember"> 
+    <label>Remember me :</label>   <br><br><br>
+    
+    <input type="submit" value="login" > <br><br>
+
+    <a href="/forgetpassword/">Forget Password</a>
+
+
+    
+    
+</center>
+</fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+
+
+<font color="orange">{{output}}</font>
+<form method="POST" action="/myadmin/cpmyadmin/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <center>
+        <h2>Change Password </h2><br><br>
+        <fieldset style="height: 350px; background-color: skyblue; color:white;font-size: medium;"> <br><br><br>
+
+            <label>Old Password :</label>
+            <input type="password" name="opass" placeholder="Enter old password"> <br><br>
+
+            <label>New Password :</label>
+            <input type="password" name="npass" placeholder="New Password"> <br><br>
+
+            <label>Conform Password :</label>
+            <input type="password" name="cnpass" placeholder="conform password"> <br><br><br>
+
+            <input type="submit" value="Change Password">
+
+    </center>
+</fieldset>
+</form>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'userhome.html' %}
+
+{% block content %}
+<script>
+    function fetchsubcategory(c) {
+        var xhttp = new XMLHttpRequest()
+        xhttp.open("GET", "/user/fetchSubCategoryAJAX/?cnm=" + c, true)
+        xhttp.send()
+        xhttp.onreadystatechange = function () {
+            if (xhttp.readyState == 4 && xhttp.status == 200) {
+                document.getElementById("response").innerHTML = xhttp.responseText
+            }
+        }
+
+    }
+
+</script>
+
+
+
+<font color="orange">{{output}}</font>
+<form method="POST" action="/user/addproduct/" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <center> 
+            <h2>Add Product !</h2>  <br>
+            <fieldset style="height:500px; background-color:skyblue;  color:cornsilk; font-size:15px;"> <br>
+
+
+            <label>Title :</label>
+            <input type="text" name="title" placeholder="enter title"> <br><br>
+
+            <label>Category :</label>
+            <select name="category" onchange="fetchsubcategory (this.value)">
+                <option>select category </option>
+                {% for row in clist %}
+                <option>{{row.catnm}}</option>
+                {% endfor %}
+            </select> <br><br>
+
+
+            <label>Sub category</label>
+            <select name="subcategory" id="response">
+                <option>select sub category</option>
+            </select> <br><br>
+
+
+            <label>Description :</label>
+            <textarea name="description" placeholder="enter description"></textarea> <br><br>
+
+            <label>Best Price :</label>
+            <input type="text" name="bprice"  placeholder="enter price"> <br><br>
+
+            <label>Product Images :</label> <br><br>
+            Image1: <input type="file" name="file1" required> <br><br>
+            Image2: <input type="file" name="file2"> <br><br>
+            Image3: <input type="file" name="file3"> <br><br>
+            Image4: <input type="file" name="file4"> <br><br><br>
+
+            <input type="submit" value="Add Product">
+        </center>
+</fieldset>
+{% endblock %}

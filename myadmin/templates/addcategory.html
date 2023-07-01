@@ -1,0 +1,31 @@
+{% extends 'adminhome.html' %}
+
+{% block content %}
+<style>
+    label {
+        color: white;
+        font-size: 16px;
+    }
+</style>
+
+<font color:"orange">{{output}}</font>
+<form method="POST" action="/myadmin/addcategory/" enctype="multipart/form-data">
+{% csrf_token %}
+
+<center>
+    <h2>Add Category </h2> <br>
+    <fieldset style="background-color: rgb(123, 209, 212); height:260px; ">
+
+        <br><br>
+        <label>Category Name :</label>
+        <input type="text" name="catnm" placeholder="enter category name"> <br><br><br>
+
+        <label>Category Icon :</label>
+        <input type="file" name="caticon"> <br><br><br>
+
+        <input type="submit" value="Addcategory">
+
+    </fieldset>
+</center>
+</form>
+{% endblock %}

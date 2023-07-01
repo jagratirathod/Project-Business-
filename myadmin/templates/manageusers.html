@@ -1,0 +1,58 @@
+{% extends 'adminhome.html' %}
+
+{% block half %}
+{% endblock %}
+
+{% block sidemenu %}
+{% endblock %}
+
+{% block content %}
+<center>
+    <h2 style="color: black;">View & Manage Users Here !!</h2> <br><br>
+    <div style="height:450px; width:900px;  font-size: 16px; color:rgb(51, 73, 15); background-color:skyblue;">
+
+        <table align="center" cellspacing="20px" cellpading="10px">
+            <tr>
+                <th>Reg Id</th>
+                <th>UserName</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Gender</th>
+                <th>Info</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <hr>
+            </tr>
+
+            {% for row in userDetails %}
+            <tr style="color: white;">
+                <td>{{row.regid}}</td>
+                <td>{{row.username}}</td>
+                <td>{{row.mobile}}</td>
+                <td>{{row.address}}</td>
+                <td>{{row.city}}</td>
+                <td>{{row.gender}}</td>
+                <td>{{row.info}}</td>
+                <td>
+                    {% if row.status %}
+                    <a href="/myadmin/manageuserstatus?regid={{row.regid}}&s=block" style="color:orange;">Block User</a>
+                    {% else %}
+                    <a href="/myadmin/manageuserstatus?regid={{row.regid}}&s=verify" style="color:darkgreen;">Verify
+                        User</a>
+                    {% endif %}
+                </td>
+
+                <td><a href="/myadmin/manageuserstatus?regid={{row.regid}}&s=delete" style="color:darkslateblue;">Delete
+                        user</a></td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+    </div>
+</center>
+{% endblock %}
